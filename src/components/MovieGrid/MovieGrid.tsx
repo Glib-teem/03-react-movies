@@ -1,8 +1,6 @@
 import React from 'react';
-import { Movie } from '../../types/movie';
+import type { Movie } from '../../types/movie'; // Змінено на import type
 import styles from './MovieGrid.module.css';
-
-// імпортую іконку react.svg з папки assets
 import reactLogo from '../../assets/stich.jpeg';
 
 interface MovieGridProps {
@@ -14,7 +12,6 @@ const MovieGrid: React.FC<MovieGridProps> = ({ movies, onSelect }) => {
   return (
     <ul className={styles.grid}>
       {movies.map((movie) => {
-        // Перевіряю, чи існує poster_path
         const posterUrl = movie.poster_path
           ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
           : reactLogo;
