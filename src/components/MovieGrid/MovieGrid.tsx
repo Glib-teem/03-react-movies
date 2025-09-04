@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Movie } from '../../types/movie'; // Змінено на import type
 import styles from './MovieGrid.module.css';
-import reactLogo from '../../assets/stich.jpeg';
+import reactLogo from '../../assets/stich-min.jpeg';
 
 interface MovieGridProps {
   movies: Movie[];
