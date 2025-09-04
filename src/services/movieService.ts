@@ -21,14 +21,30 @@ export const fetchMovies = async ({
   query,
   page = 1,
 }: SearchMoviesParams): Promise<MovieSearchResponse> => {
-  const response = await movieApi.get<MovieSearchResponse>('/search/movie', {
-    params: {
-      query,
-      page,
-      include_adult: false,
-      language: 'en-US',
-    },
-  });
+  try {
+    if (!API_TOKEN) {
+      throw new Error('TMDB API token is not configured');
+    }
 
-  return response.data;
+    const response = await movieApi.get<MovieSearchResponse>('/search/movie', {
+      params: {
+        query,
+        page,
+        include_adult: false,
+        language: 'en-US',
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error('TMDB API Error:', error.response?.data || error.message);
+      throw new Error(
+        `API Error: ${error.response?.status} - ${
+          error.response?.statusText || error.message
+        }`
+      );
+    }
+    throw error;
+  }
 };
