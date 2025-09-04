@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import MovieModal from '../MovieModal/MovieModal';
 import { fetchMovies } from '../../services/movieService';
-import type { Movie } from '../../types/movie';
+import { Movie } from '../../types/movie';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
@@ -66,7 +66,7 @@ const App: React.FC = () => {
         />
       )}
 
-      <Toaster position="top-center" />
+      <Toaster position="top-right" />
     </div>
   );
 };
