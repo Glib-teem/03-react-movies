@@ -4,9 +4,8 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Забезпечує, що фон не буде прокручуватися */
+  background-attachment: fixed;
 
-  /* Забираємо зовнішні відступи та смуги прокрутки */
   margin: 0;
   padding: 0;
   overflow-x: hidden;
