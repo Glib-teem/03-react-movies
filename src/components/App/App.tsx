@@ -5,7 +5,7 @@ import MovieGrid from '../MovieGrid/MovieGrid';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import MovieModal from '../MovieModal/MovieModal';
-// Fixed imports: Movie from types, fetchMovies and MovieSearchResponse from service
+
 import {
   fetchMovies,
   type MovieSearchResponse,
@@ -70,7 +70,26 @@ const App: React.FC = () => {
         />
       )}
 
-      <Toaster position="top-center" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            fontSize: '18px',
+            fontWeight: '500',
+            padding: '16px 20px',
+            minWidth: '300px',
+          },
+
+          error: {
+            style: {
+              fontSize: '18px',
+              fontWeight: '600',
+              padding: '16px 20px',
+              minWidth: '320px',
+            },
+          },
+        }}
+      />
     </div>
   );
 };

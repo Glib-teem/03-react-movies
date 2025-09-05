@@ -4,7 +4,6 @@ import type { Movie } from '../types/movie';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 
-// API response types belong in service file
 export interface MovieSearchResponse {
   page: number;
   results: Movie[];
