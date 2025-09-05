@@ -1,15 +1,17 @@
+// ONLY Movie interface, NO MovieSearchResponse
 export interface Movie {
   id: number;
-  poster_path: string;
-  backdrop_path: string;
   title: string;
   overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
   release_date: string;
   vote_average: number;
-}
-
-export interface MovieSearchResponse {
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
+  vote_count: number;
+  genre_ids: number[];
+  adult: boolean;
+  original_language: string;
+  original_title: string;
+  popularity: number;
+  video: boolean;
 }

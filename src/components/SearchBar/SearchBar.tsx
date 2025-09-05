@@ -7,7 +7,7 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
-  // Use React Form Actions API - action function instead of onSubmit handler
+  // React Form Actions API - action function receives FormData directly
   const handleSubmit = (formData: FormData) => {
     const query = formData.get('query') as string;
 

@@ -5,8 +5,12 @@ import MovieGrid from '../MovieGrid/MovieGrid';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import MovieModal from '../MovieModal/MovieModal';
-import { fetchMovies } from '../../services/movieService';
-import { Movie } from '../../types/movie';
+// Fixed imports: Movie from types, fetchMovies and MovieSearchResponse from service
+import {
+  fetchMovies,
+  type MovieSearchResponse,
+} from '../../services/movieService';
+import type { Movie } from '../../types/movie';
 import styles from './App.module.css';
 
 const App: React.FC = () => {
@@ -21,7 +25,7 @@ const App: React.FC = () => {
     setMovies([]);
 
     try {
-      const data = await fetchMovies({ query });
+      const data: MovieSearchResponse = await fetchMovies({ query });
 
       if (data.results.length === 0) {
         toast.error('No movies found for your request.');
