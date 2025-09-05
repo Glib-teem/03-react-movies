@@ -1,8 +1,32 @@
 import axios from 'axios';
-import type { MovieSearchResponse } from '../types/movie';
 
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
+
+// Move MovieSearchResponse interface here instead of types/movie
+export interface MovieSearchResponse {
+  page: number;
+  results: Movie[];
+  total_pages: number;
+  total_results: number;
+}
+
+export interface Movie {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date: string;
+  vote_average: number;
+  vote_count: number;
+  genre_ids: number[];
+  adult: boolean;
+  original_language: string;
+  original_title: string;
+  popularity: number;
+  video: boolean;
+}
 
 interface SearchMoviesParams {
   query: string;

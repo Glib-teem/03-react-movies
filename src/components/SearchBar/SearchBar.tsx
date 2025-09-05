@@ -7,11 +7,8 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
+  // Use React Form Actions API - action function instead of onSubmit handler
+  const handleSubmit = (formData: FormData) => {
     const query = formData.get('query') as string;
 
     if (!query.trim()) {
@@ -35,7 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
         </a>
         <form
           className={styles.form}
-          onSubmit={handleSubmit}
+          action={handleSubmit}
         >
           <input
             className={styles.input}
